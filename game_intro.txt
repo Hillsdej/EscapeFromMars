@@ -1,0 +1,11 @@
+Idea of how to do things
+
+Game intro
+
+1. Create background for intro page
+2. Create block function which will be used to create the buttons
+   - These will take take the rectangles x,y, widht and height values along with the colour as arguments.
+3. Modify Func function for displaying texts
+4. Create a button function which gets the mouse position
+5. Modify colour to change lighter as to suggest interactivity
+6. Import game_intro function into main and call before the main while loop
