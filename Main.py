@@ -1,23 +1,21 @@
 import pygame, sys, Func
+import os
 from tileClass import Tile
 from object_classes import *
 from interaction import interaction
 from invalidsFunc import *
 from A_Star import A_Star
 from time import sleep
-#from game_intro import *
 
-import os
-x = 140
-y = 50
-os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x,y)
+windowPosX = 140
+windowPosY = 50
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (windowPosX,windowPosY)
 
 
 #set screen size 
 display_width = 960
 display_height = 640
 screen = pygame.display.set_mode((display_width,display_height))
-#print(type(screen))
 
 black = (0,0,0)
 white = (255,255,255)
@@ -37,6 +35,7 @@ def button(msg,x,y,w,h,ic,ac,action=None):
         pygame.draw.rect(screen, ac, (x,y,w,h))
         if click [0] == 1 and action != None:
             if action == "play":
+                controls()
                 gameLoop()
             elif action == "quit":
                 pygame.quit()
@@ -49,8 +48,26 @@ def button(msg,x,y,w,h,ic,ac,action=None):
     textRect.center = ((x+(w/2)), (y+(h/2)))
     screen.blit(textSurf, textRect)
 
+def controls():
+    progress = 0
+    controlsImage = pygame.image.load("images/ControlsPg.png")
+    progressOutlineImage = pygame.image.load("images/progressBar.png")
+    
+    t = 15
+    screen.blit(controlsImage, (0,0))
+    loadingBlockX = 111
+    screen.blit(progressOutlineImage, (108,10))
+    while t:
+        pygame.draw.rect(screen, white, (loadingBlockX,14,55,15))
+        Func.text_to_screen(screen,"Loading: ",8,8)
+        pygame.display.flip()
+        loadingBlockX += 48.25
+        clock.tick(1)
+        t -= 1
+        
+ 
 def text_objects(text, font):
-    textSurface = font.render(text, True, black)
+    textSurface = font.render(text, True, white)
     return (textSurface, textSurface.get_rect())
 
 
@@ -65,7 +82,7 @@ def game_intro():
         openingImage = pygame.image.load("images/OpeningImage.png")
         screen.blit(openingImage, (0,0))
         largeText = pygame.font.SysFont('Arial.txt', 85)
-        TextSurf, TextRect = text_objects("Escape From Mars!", largeText)
+        TextSurf, TextRect = text_objects("Dunegen", largeText)
         TextRect.center = ((display_width/2),(display_height/2))
         screen.blit(TextSurf, TextRect)
 
