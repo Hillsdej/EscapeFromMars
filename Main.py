@@ -39,8 +39,8 @@ def button(msg,x,y,w,h,ic,ac,action=None):
             if action == "play":
                 gameLoop()
             elif action == "quit":
-                pygame.QUIT()
-                quit()
+                pygame.quit()
+                sys.exit()
     else:
         pygame.draw.rect(screen, ic, (x,y,w,h))  
 
@@ -65,7 +65,7 @@ def game_intro():
         openingImage = pygame.image.load("images/OpeningImage.png")
         screen.blit(openingImage, (0,0))
         largeText = pygame.font.SysFont('Arial.txt', 85)
-        TextSurf, TextRect = text_objects("Game Test", largeText)
+        TextSurf, TextRect = text_objects("Escape From Mars!", largeText)
         TextRect.center = ((display_width/2),(display_height/2))
         screen.blit(TextSurf, TextRect)
 
@@ -134,4 +134,4 @@ def gameLoop():
 game_intro()
 gameLoop()
 pygame.quit()
-quit()
+sys.exit()
