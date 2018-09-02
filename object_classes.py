@@ -55,7 +55,7 @@ class Enemy(Character):
 
     List = []
     spawn_tiles = (12,15,168,514,537)
-    original_img = pygame.image.load("images/alien.png")
+    original_img = pygame.image.load("Images/alien.png")
     health = 100 
 
     def __init__(self, x, y):
@@ -134,7 +134,7 @@ class Player(Character):
         self.health = randint(300,800)
         self.current = 0 # = pistol, 1 = shotgun 3 = automatic  
         self.direction = "w"
-        self.img = pygame.image.load('images/spaceship_w.png')
+        self.img = pygame.image.load('Images/spaceship_w.png')
         
         Character.__init__(self, x, y)
 
@@ -175,7 +175,7 @@ class Player(Character):
 
     def rotate(self, direction):
 
-        path = 'images/spaceship_'
+        path = 'Images/spaceship_'
         png = '.png'
         
         if direction == "n":
@@ -204,9 +204,9 @@ class Bullet(pygame.Rect):
     width, height = 7,10
     List = []
 
-    imgs = {'pistol':pygame.image.load('images/pistol_b.png'),
-            "shotgun" :pygame.image.load('images/shotgun_b.png'),
-            'automatic':pygame.image.load('images/automatic_b.png')
+    imgs = {'pistol':pygame.image.load('Images/pistol_b.png'),
+            "shotgun" :pygame.image.load('Images/shotgun_b.png'),
+            'automatic':pygame.image.load('Images/automatic_b.png')
             }
 
     gun_dmg = {'pistol' : (Enemy.health //3),

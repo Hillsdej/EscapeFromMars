@@ -50,8 +50,8 @@ def button(msg,x,y,w,h,ic,ac,action=None):
 
 def controls():
     progress = 0
-    controlsImage = pygame.image.load("images/ControlsPg.png")
-    progressOutlineImage = pygame.image.load("images/progressBar.png")
+    controlsImage = pygame.image.load("Images/ControlsPg.png")
+    progressOutlineImage = pygame.image.load("Images/progressBar.png")
     
     t = 15
     screen.blit(controlsImage, (0,0))
@@ -79,7 +79,7 @@ def game_intro():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        openingImage = pygame.image.load("images/OpeningImage.png")
+        openingImage = pygame.image.load("Images/OpeningImage.png")
         screen.blit(openingImage, (0,0))
         largeText = pygame.font.SysFont('Arial.txt', 85)
         TextSurf, TextRect = text_objects("Dunegen", largeText)
@@ -114,7 +114,7 @@ def gameLoop():
     FPS = 24
     total_frames = 0
 
-    background = pygame.image.load('images/Background.png')
+    background = pygame.image.load('Images/Background.png')
     player = Player(64,128)
 
         
@@ -142,7 +142,7 @@ def gameLoop():
 
         if player.health <= 0:
             sleep(2)
-            screen.blit(pygame.image.load("images/End.png"),(0,0))
+            #screen.blit(pygame.image.load("Images/End.png"),(0,0))
             pygame.display.update()
             break
 

@@ -10,7 +10,7 @@ def game_intro():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        szcreen.image.load("images/Opening.png")
+        szcreen.image.load("Images/Opening.png")
         largeText = pygame.font.SysFont('Arial.txt', 85)
         TextSurf, TextRect = text_objects("Game Test", largeText)
         TextRect.center = ((display_width/2),(display_height/2))
